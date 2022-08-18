@@ -39,5 +39,7 @@ jobs:
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
           
-      - name: ENV Test
-        run: echo "The API key is:${{secrets.API_KEY}}"
+      - uses: oNaiPs/secrets-to-env-action@v1
+        with:
+          secrets: ${{ toJSON(secrets) }}
+      - run: node -e "console.log(process.env.API_KEY)"
