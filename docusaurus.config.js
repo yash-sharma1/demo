@@ -9,7 +9,7 @@ const config = {
   title: 'Deployment Demo',
   tagline: 'Testing Docusaurus & GitHub Pages',
   url: 'https://github.com',
-  baseUrl: '/demo/',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
