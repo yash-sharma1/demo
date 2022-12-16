@@ -1,14 +1,17 @@
-on: push
-name: Update prod branch on release
+name: Update `development` branch
+
+on:
+  release:
+    types: [published]
+
 jobs:
-  updateBranch:
-    name: Update staging branch
+  update-branch:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - uses: Embraser01/update-git-branch-action@v1.0.0
-      if: github.ref == 'refs/heads/master'
-      with:
-        branch: development
-        force: 1 # To push-force to the branch
-        githubToken: ${{ secrets.PAT_TOKEN }} # Github Token
+    - shell: bash
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git branch -f latest
+        git push -f origin latest
