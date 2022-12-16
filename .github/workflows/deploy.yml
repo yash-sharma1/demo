@@ -23,13 +23,13 @@ jobs:
       - name: Build website
         run: npm run build
 
-      - name: Create Branch
-        uses: peterjgrainger/action-create-branch@v2.2.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          branch: 'development'
-          sha: '${{ github.event.pull_request.head.sha }}'
+#      - name: Create Branch
+#        uses: peterjgrainger/action-create-branch@v2.2.0
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          branch: 'development'
+#          sha: '${{ github.event.pull_request.head.sha }}'
 
       # Popular action to deploy to GitHub Pages:
       # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
